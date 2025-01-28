@@ -1,8 +1,8 @@
-# Q11
+# Q1
 def find_div(n):
     for i in range(1, n):
         if n % i == 0:
-            print(i, end=", ")
+            print(i, end=" ")
     print()
 
 
@@ -11,10 +11,10 @@ find_div(20)
 
 # Q2
 def numbers():
-    serial, total, count = 1, 0, 0
+    total, count = 0, 0
 
     while True:
-        num = int(input(f"Please enter number #{serial}: "))
+        num = int(input(f"Please enter number #{count + 1}: "))
 
         if num < 0:
             print("Thank you, Goodbye.")
@@ -24,9 +24,7 @@ def numbers():
         total += num
         avg = total / count
 
-        print(f"Please enter number #{serial} (avg = {avg:.2f} sum = {total}): ", end="")
-
-        serial += 1
+        print(f"Avg = {avg:.2f} sum = {total}")
 
 
 numbers()
@@ -56,17 +54,17 @@ words()
 def compare(lis1, lis2):
     min_len = min(len(lis1), len(lis2))
 
-    list1_bigger, list2_bigger = 0, 0
+    balance = 0
 
     for i in range(min_len):
         if lis1[i] > lis2[i]:
-            list1_bigger += 1
+            balance += 1
         elif lis1[i] < lis2[i]:
-            list2_bigger += 1
+            balance -= 1
 
-    if list1_bigger > list2_bigger:
+    if balance > 0:
         print("List 1 is bigger")
-    elif list1_bigger < list2_bigger:
+    elif balance < 0:
         print("List 2 is bigger")
     else:
         print("Both lists are equal")
